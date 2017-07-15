@@ -14,7 +14,7 @@ def home (request):
     if request.user.is_authenticated():
         genero = User.objects.get(email=request.user.email).genero
         usuarios = User.objects.filter(~Q(email=request.user.email,genero=genero))
-        return render (request,'home.html', {'users':json.dumps(usuarios)})
+        return render (request,'home.html', {'users':usuarios})
     else:
         return redirect('home:login')
 
