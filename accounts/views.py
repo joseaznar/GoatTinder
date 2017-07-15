@@ -5,6 +5,7 @@ from .models import User
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+import json
 
 
 # Create your views here.
@@ -13,7 +14,7 @@ def home (request):
     if request.user.is_authenticated():
         genero = User.objects.get(email=request.user.email).genero
         usuarios = User.objects.filter(~Q(email=request.user.email,genero=genero))
-        return render (request,'home.html', {'users':usuarios})
+        return render (request,'home.html', {'users':json.dumps(usuarios)})
     else:
         return redirect('home:login')
 
