@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts'
 
 ]
 
@@ -65,7 +66,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'clone_pin.wsgi.application'
+WSGI_APPLICATION = 'tutorial.wsgi.application'
 
 
 # Database
@@ -74,8 +75,8 @@ WSGI_APPLICATION = 'clone_pin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'goatinder',
-        'USER': 'tinder_admin',
+        'NAME': 'postgres',
+        'USER': 'pin_admin',
         'PASSWORD':'pin2017',
         'HOST':'localhost',
         'PORT':'5432'
@@ -126,6 +127,6 @@ STATICFILES_DIRS = [os.path.join(os.getcwd(),'static') ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.getcwd(),'media')
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_URL = "/login/"

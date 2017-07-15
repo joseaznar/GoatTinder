@@ -1,6 +1,9 @@
 from django.conf.urls import url
-from . import views # . will look into docs with the name views in this file this 
+from .views import * # . will look into docs with the name views in this file this 
 
 urlpatterns =[
- 	url(r'^$', views.home)		
- 	]
+ 	url(r'^$', home, name="index"),
+    url(r'^login/$', LogIn, name="login"),
+    url(r'^signup/$', SignUp, name="signup"),
+    url(r'^logout/$', Logout, name="logout"),
+]
